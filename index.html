@@ -1,90 +1,59 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, minimum-scale=1"
+		/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>联想小橙智能鼠标</title>
 	</head>
 
 	<body>
 		<div class="bg">
-			<div class="header">
-				<h1>联想小橙智能鼠标</h1>
-				<div class="right"><img src="./img/logo.png" /></div>
-			</div>
-			<div class="center">
-				<div class="info">
-					<div class="icon"></div>
-					<div class="title">
-						<h1>Lenovo Office</h1>
-
-						<p>
-							语音输入，智享高效办公 <br />
-							M键自定义，工作得心应手 <br />
-							<br />
-							<br />
-							<br />
-							<br />
-						</p>
-					</div>
-					<div class="circle">
-						<img src="" />
-						<img src="" />
-					</div>
+			<div class="header"><img src="./img/LenovoLogo@2x.png" /></div>
+			<div class="main">
+				<div class="left">
+					<img src="./img/left_img@2x.png" />
+                    <div class="info">
+                        <span>语音输入，智享高效办公 </span>
+                        <span>M键自定义，工作得心应手</span></div>
+					
 					<div class="button">
-						<div class="win" onclick="winDown()"></div>
-						<div class="mac" onclick="macDown()"></div>
-					</div>
-
-					<div class="contactUs">
-						<span>客服电话：400-619-2076</span>
+						<img class="win" onclick="winDown()" src="./img/left_win_button.png" />
+				        <img class="mac"  onclick="macDown()" src="./img/left_mac_button.png" />
 					</div>
 				</div>
-				<div class="mouse_img"></div>
+				<div class="right">
+					<div class="right_bg"></div>
+					</div>
+				</div>
 			</div>
+			<div class="footer"><span>客服电话：400-619-2076</span></div>
 		</div>
 	</body>
 	<script>
-		window.onload = function () {
-			var imgs = ['./img/mouse_gold.png', './img/mouse_pink.png']
-			var i = 0
-			var head = document.getElementsByClassName('mouse_img')
-			var circles = document
-				.getElementsByClassName('circle')[0]
-				.getElementsByTagName('img')
-			console.log(circles[0].src)
-			circles[0].src = './img/gold_hover.png'
-			circles[1].src = './img/pink.png'
+    
+        (function(doc,win){
+        let fn = () => {
+            let docEl = doc.documentElement,
+                clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+        }
+        if (!doc.addEventListener) return;
+        win.addEventListener('resize',fn);
+        doc.addEventListener('DOMContentLoaded',fn);
+        })(document,window);
 
-			head[0].style.background = 'url(./img/mouse_gold.png)'
-			head[0].style.backgroundRepeat = 'no-repeat'
-		
-			//设置初始路径
-			function time() {
-				i++
-				if (i == imgs.length) {
-					i = 0
-				}
-				if (i == 0) {
-					circles[0].src = './img/gold_hover.png'
-					circles[1].src = './img/pink.png'
-				}
-				if (i == 1) {
-					circles[1].src = './img/pink_hover.png'
-					circles[0].src = './img/gold.png'
-				}
-				head[0].style.background = 'url(' + imgs[i] + ')'
-				head[0].style.backgroundRepeat = 'no-repeat'
-				
-			}
-			setInterval(time, 5000) //间隔为5000ms
-		}
+    
 		function winDown() {
-			console.log('win')
-
-			// window.open('')
+			window.location =
+				'https://iotstatic.lenovo.com.cn/smartdone/download/SmartDone.exe?time=' +
+				Date.now()
 		}
 		function macDown() {
-			console.log('mac')
+			window.location =
+				'https://iotstatic.lenovo.com.cn/smartdone/download/SmartDone.dmg?time=' +
+				Date.now()
 		}
 	</script>
 
@@ -98,167 +67,101 @@
 		body {
 			height: 100%;
 		}
-
 		.bg {
-			background-image: url('./img/background.png');
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
+            background: -webkit-linear-gradient(180deg,rgba(255, 255, 255, 1),rgba(255, 244, 226, 1),rgba(254, 231, 194, 1)); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(180deg,rgba(255, 255, 255, 1),rgba(255, 244, 226, 1),rgba(254, 231, 194, 1)); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(180deg,rgba(255, 255, 255, 1),rgba(255, 244, 226, 1),rgba(254, 231, 194, 1)); /* Firefox 3.6 - 15 */
+            background: linear-gradient(180deg,rgba(255, 255, 255, 1),rgba(255, 244, 226, 1),rgba(254, 231, 194, 1)); /* 标准的语法 */
 			width: 100%;
 			height: 100%;
 		}
-		.header {
-			display: -webkit-flex;
-			/* Safari */
-			display: flex;
-			flex-direction: row;
-			-webkit-flex-direction: row;
-		}
-		.header h1 {
-			font-size: 20px;
-			font-family: 'PingFangSC-Medium, PingFang SC';
-			font-weight: 500;
-			color: #000000;
+		.header img {
+            width:2.52rem;
+            height: 0.51rem;
 			position: absolute;
-			top: 2.4%;
-			left: 5%;
+            top:0.48rem;
+            left: 0.64rem;
 		}
-		.right {
-			width: 35%;
-			height: 12%;
-			position: absolute;
-			top: 0;
-			right: 0;
-			background-image: url('./img/top.png');
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
-		}
-		.right img {
-			position: absolute;
-			right: 3.47%;
-			top: 24.3%;
-		}
-		.center {
-			position: absolute;
-			left: 5%;
-			width: 90%;
-			height: 80%;
-			top: 15.1%;
-			display: flex;
-			display: -webkit-flex;
+        .main {
+			margin: 0 auto;
 			/* border: 1px solid #000; */
-		}
-		.info {
-			display: flex;
-			display: -webkit-flex;
-			flex-direction: column;
-			-webkit-flex-direction: column;
-			justify-content: flex-start;
-			-webkit-justify-content: flex-start;
-			/* border: 1px solid #000; */
-			width: 47%;
-		}
-		.icon {
-			margin-left: 18.2%;
-
-			width: 51px;
-			height: 51px;
-			background: #e4b980;
-			border-radius: 9px;
-			flex-shrink: 0;
-		}
-		.title {
-			width: 218%;
-			height: 25%;
-			background-image: url('./img/info_bg.png');
-			background-size: auto;
-			margin-top: 4.9%;
-			background-repeat: no-repeat;
-			/* border: 1px solid #000; */
-		}
-		.info h1 {
-			margin-left: 8.3%;
-			font-size: 50px;
-			font-family: 'FZLTCHJW--GB1-0, FZLTCHJW--GB1';
-			font-weight: normal;
-			color: #000000;
-		}
-		.info p {
-			margin-left: 8.3%;
-			margin-top: 2%;
-			font-size: 12px;
-			font-family: 'PingFangSC-Medium, PingFang SC';
-			font-weight: 500;
-			color: #000000;
-		}
-
-		.button {
-			margin-left: 18.2%;
-			margin-top: 14%;
-			width: 372px;
-			/* border: 1px solid #000; */
-			/* height: 100%; */
-			display: -webkit-flex;
-			display: flex;
-			justify-content: space-between;
-			-webkit-justify-content: space-between;
-		}
-
-		.button .win {
-			width: 180px;
-			height: 46px;
-			background-image: url('./img/windows_button.png');
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
-		}
-		.button .win:hover {
-			cursor: pointer;
-			background-image: url('./img/windows_button_hover.png');
-		}
-		.button .mac:hover {
-			cursor: pointer;
-			background-image: url('./img/mac_button_hover.png');
-		}
-		.button .mac {
-			width: 180px;
-			height: 46px;
-			background-image: url('./img/mac_button.png');
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
-		}
-
-		.mouse_img {
+            width:12rem;
+            height:5.39rem;
 			position: relative;
-			top: 6%;
-			left: 13.7%;
-			/* border: 1px solid #000; */
-			width: 22%;
-			height:70%;
-
-		}
-		.contactUs {
-			margin-left: 18.2%;
-			margin-top: 10%;
-		}
-
-		.contactUs span {
-			font-size: 14px;
-			font-family: 'PingFangSC-Medium, PingFang SC';
-			font-weight: 500;
-			color: #000000;
-		}
-
-		.circle {
-			margin-left: 18.2%;
-			margin-top: 6%;
+			top: 50%;
+			transform: translateY(-50%);
 			display: flex;
-			display: -webkit-flex;
+			justify-content: center;
 			align-items: center;
-			-webkit-align-items: center;
-			/* border: 1px solid #000; */
+          
 		}
-
-		.circle img {
-			margin-left: 1.3%;
+		.left {
+            height: 100%;
+			width: 50%;
+	        margin-top:0.46rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.left img{
+            width:1.39rem;
+            height:2.66rem;
+		}
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+		.info span {
+			font-size: 0.3rem;
+			font-family: 'PingFangSC-Regular, PingFang SC';
+			color: #666;
+            line-height:0.5rem;
+            white-space:nowrap;
+		}
+		.button {
+            margin-top:0.39rem;
+			display: flex;
+		}
+		.button .win,
+		.mac:hover {
+			cursor: pointer;
+		}
+        .button img{
+            width: 2.81rem;
+            height:0.73rem;
+        }
+        .mac {
+            margin-left:0.38rem;
+        }
+		.right {
+			width: 50%;
+			height: 100%;
+		}
+		.right_bg {
+            width:5.78rem;
+            height:5.39rem;
+			background: url('./img/right_mouse.png');
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: relative;
+            left:0.76rem;
+		}
+		.footer {
+			width: 100%;
+            height: 0.7rem;
+			background: #ffe8c3;
+			position: fixed;
+			bottom: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.footer span {
+			font-size: 0.2rem;
+			font-family: 'PingFangSC-Medium, PingFang SC';
+			color: #999;
+            line-height:0.28rem;
 		}
 	</style>
 </html>
