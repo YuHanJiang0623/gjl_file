@@ -31,7 +31,7 @@ export default {
   created() {},
   mounted() {
 
-    this.$axios.get(process.env.API_HOST+"/admin", {
+    this.$axios.get("/admin", {
         // params: {
         //   app_type:2
         // }
