@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/api': {
-          target: 'http://localhost:9527', //你要访问的服务器域  https://pvtshpv1.lenovo.com.cn 
+          target: 'http://localhost:8081', //你要访问的服务器域  https://pvtshpv1.lenovo.com.cn 
           changeOrigin: true, //允许跨域
           secure: false,
           pathRewrite: {
@@ -51,7 +51,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

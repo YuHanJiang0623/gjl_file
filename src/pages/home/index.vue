@@ -31,7 +31,7 @@ export default {
   created() {},
   mounted() {
 
-    this.$axios.get("/api/a", {
+    this.$axios.get("/api/admin", {
         // params: {
         //   app_type:2
         // }
